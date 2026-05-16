@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>GRID EXAMPLE-1</title>
+        <style>
+             *{
+                padding: 0px;
+                margin: 0px;
+                box-sizing: border-box;
+            }
+            .parent{
+               height: 100vh;
+               color: white;
+               text-align: center;
+               display: grid;
+               grid-template-rows: 15% 75% 10%;
+               grid-template-columns: 15% 70% 15%;
+               gap: 10px;
+            }
+            .header{
+                background-color: green;
+                grid-column: 1/4;
+                grid-row: 1/2;
+            }
+            .left{
+                background-color: black;
+                grid-column: 1/2;
+                grid-row: 2/3;
+            }
+            .content{
+                background-color: red;
+                grid-column: 2/3;
+                grid-row: 2/3;
+            }
+            .right{
+                background-color: black;
+                grid-column: 3/4;
+                grid-row: 2/3;
+            }
+            .footer{
+                background-color: green;
+                grid-column: 1/4;
+                grid-row: 3/4;
+            }
+        
+
+            
+        </style>
+    </head>
+    <body>
+        <div class="parent"> 
+            <div class="header">header</div>
+            <div class="left menu"> left menu</div>
+            <div class="content">content</div>
+            <div class="right">right menu</div>
+            <div class="footer">footer</div>
+        </div>
+
+    </body>
+</html>

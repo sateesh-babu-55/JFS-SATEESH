@@ -1,0 +1,354 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Variables</title>
+    </head>
+    <body>
+        <script>
+            /*
+                const
+                *****
+                    const keyword introduced in "ES6" version
+                    reinitilization / modifications not possible with "const" keyword
+            */
+        
+            //    const x = 100;
+            //    x = 200;
+
+            // const arr = [10,20,30,40,50];
+            //arr = [];
+            //arr = [1000,2000,3000,4000,5000]
+            // arr[0] = 1000;
+            // arr[1] = 2000;
+            // arr[4] = 5000;
+            // console.log(arr);
+
+            const obj = {
+                key1 : 100
+            };
+            //obj = {} //Err
+            
+            // obj = {
+            //     key1 : 1000
+            // }
+
+            // obj.key1 = 1000
+            // console.log(obj);
+            
+            
+            
+            
+            
+            /*
+                variables
+                    variables are used to "store" the data
+                    Ex.
+                        string
+                        number
+                        boolean
+                        arrays
+                        objects
+                        ---
+                        ---
+                        ---
+                    we will declare variables in three ways
+                    1) var
+                    2) let
+                    3) const
+                    4) <no keyword>
+
+                    let and const released in "ES6" version
+
+                    syntax.
+                            var / let / const  variable_name = value;
+                    Ex.
+                         var x = "CareerIT";
+                         document.write(x);    //CareerIT
+
+                    rules for identifier
+                    ********************
+                    1) identifier must have a-z, A-Z, 0-9, $ and _
+                    2) identifier should not start with digits
+                    Ex.
+                            var 123abc; (wrong)
+                            var abc123;
+                            var _123abc;
+                            var _123$abc;
+                            var _123#abc; (wrong)
+                    
+                    DataType:
+                        DataType representing type of data
+                        we have two types of DataTypes
+                        1) primitive datatypes
+                        2) non primitive datatypes
+                    
+                    primitive datatypes
+                    *******************
+                        primitive datatypes representing plain data / normal text
+                        
+                        primitive datatypes wont supports any "predefined properties/predefined
+                        functions"
+
+                        primitive datatypes divided into
+                        1) string
+                        2) number
+                        3) boolean
+                        4) undefined
+                        5) null
+                        6) bigint
+                        7) symbol
+
+                        non primitive datatypes are the objects
+                        non primitive datatypes supports predefined properties and predefined
+                        functions
+                        Ex.
+                            Arrays
+                            Objects
+                            functions
+                            classes
+                            interfaces
+                            ---
+                            ---
+                            ---
+            */
+            /*
+                        number
+                        ******
+                            - primitive datatype
+                            - we have five types of numbers (literals)
+                                1) decimal
+                                2) double
+                                3) hexadecimal
+                                    hexadecimal starts with 0x (A-F)
+                                4) octal
+                                    octal starts with 0o
+                                5) binary
+                                    binary starts with 0b
+                            Note : hexadecimal, octal and binary automatically converts to decimal
+            */
+            /*
+            var num1 = 200;
+            var num2 = 100;
+            var add = num1 + num2;
+            document.write(add,"<br>");
+            //Sub
+            //Mul
+            //Div
+            //Square of a num1
+            //Cube of a num2
+
+            var hexadecimal = 0x123ABC;
+            document.write(hexadecimal,"<br>");
+
+            var octal = 0o123;
+            document.write(octal,"<br>");
+
+            var binary = 0b1010;
+            document.write(binary,"<br>");
+            */
+
+            /*
+                        string
+                        ******
+                            collection of characters / group of characters called as string
+                            we will represent string in 3 ways
+                                1) "" (double quotes)
+                                2) '' (single quotes)
+                                3) `` (backtick)
+                            `` (backtick) technically called as "template litearal"
+                            template litearal released in "ES6 version"
+                            why template literal ?
+                                it is used to define multi line string 
+            */
+
+            /*
+            var sub = `JS !!!`;
+            var msg = `Welcome to ${sub}`;
+            document.write(msg,`<br>`);
+            */
+
+            /*
+                        boolean
+                        *******
+                            we have two boolean values
+                            1) true
+                            2) false
+
+                            true means 1
+                            false means 0
+
+                        ternary operator
+                        ****************
+                            condition ? block1 : block2;
+                            if condition is true, block1 will execute otherwise block2 will execute
+            */
+
+            /*
+            var flag = true;
+            var flag1 = false;
+            flag ? document.write(`Frontend`,`<br>`):document.write(`Backend`,`<br>`);
+            !flag ? document.write(`Frontend`,`<br>`):document.write(`Backend`,`<br>`);
+            flag1 ? document.write(`Frontend`,`<br>`):document.write(`Backend`,`<br>`);
+            !flag1 ? document.write(`Frontend`,`<br>`):document.write(`Backend`,`<br>`);*/
+
+            /*
+                        undefined
+                        *********
+                            variable declared but value not assigned called as undefined
+                            undefined is primitive datatype
+                            undefined with any arthematic operations then result will be NaN
+                            NaN stands for Not an Number
+            */
+            /*
+                var x;
+                document.write(x,`<br>`);
+                document.write(x+10,`<br>`);
+            */
+           /*
+                        null
+                        ****
+                - primitive datatype
+                - representing 0 or blank
+                - external initilization required
+                - while performing arthematic operations null automatically converts to 0
+           */
+          /*
+            var y = null;
+            document.write(y,`<br>`);
+            document.write(y+10,`<br>`);
+          */
+         /*
+                        what are the differences between undefined and null ?
+            --------------------------------------------------------------
+                        undefined                   null
+            --------------------------------------------------------------
+            1) primitive datatype       primitive datatype
+            2) variable not assigned.   null representing 0 or blank
+               called as undefined
+            3) external initilization   external initilization required 
+               not required
+            4) undefined with any           in any arthematic operations null 
+               arthematic operations then   automatically converts to 0
+               result will be NaN
+            --------------------------------------------------------------
+         */
+
+ 
+          /*
+                bigint
+                ******
+                  used to store the large number
+                  bigint suffix with "n"
+                  range : 2^53 - 1 to -2^53 - 1
+          */
+
+          /*
+          var large = 123456789123456789123456789123456789123456789123456789n;
+          document.write(large);
+          */
+
+          /*
+               Symbol
+               ******
+                 Symbol is the primitive datatype
+                 Symbol datatype used to create unique identifiers
+                 Symbol datatype, used to achieve security
+          */
+          /*
+            r101 = Symbol("Test");
+            r102 = Symbol("Test");
+          */
+
+          /*
+                        variable hoisting
+                        *****************
+                            because of var keyword, variable declaration moved to top scope
+                            of application with undefined called as variable hoisting
+
+                            var keyword initilizes with "undefined"
+
+                            var keyword supports "hoisting"
+          
+          */
+        //   document.write(x);
+        //   document.write(x+100);
+        //   var x = 100;
+        //   document.write(x);
+        //   document.write(x+100);
+
+
+                        /*
+                            non primitive datatypes are the object data
+                            we can apply predefined properties and functions
+                            Ex.
+                                Arrays
+                                Objects
+                                functions
+                                interfaces
+                                classes
+                                ---
+                                ---
+                                ---
+                        */
+                        // var arr1 = [10,20,30,40,50];
+                        // document.write(arr1[0],`<br>`);
+                        // document.write(arr1[1],`<br>`);
+
+                        /*
+                            json
+                            ****
+                                javascript object notation
+                                javascript objects
+                                json, used to transfer the data over the network
+                                json is "light weight"
+                                Objects -- {}
+                                Arrays -- []
+                                Data -- key & value pairs
+                                        key & value separated by using ":"
+                                        key & value pairs are separated by using ","
+                        */
+                        // var obj = {
+                        //     key1 : 100,
+                        //     key2 : 200,
+                        //     key3 : 300
+                        // };
+                        // var x = obj.key1;
+                        // document.write(x);
+
+
+
+                        // let x = 100;
+                        // let x = 200;
+                        // document.write(x);
+                        //var : allows duplicates.      // 200
+                        //let won't allows duplicates.  // Err
+
+
+                        // let x = 100;
+                        
+                        // {
+                        //     let x = 200; 
+                        // }
+
+                        //document.write(x);
+                        //var : 200
+                        //let : 100
+
+                    /*
+                        what are the differences between var and let ?
+                                var                             let
+                        1) var introduced               let introduced in ES6 version
+                           in ES1 version
+
+                        2) var allows duplicates        let won't allows duplicates
+
+                        3) variable hoisting            let wont supports variable
+                           supports by var keyword      hoisting
+                        
+                        4) global polluting issue.      global polluting issue not raised
+                           raised by var keyword        by let kyword
+                    */
+
+        </script>
+    </body>
+</html>

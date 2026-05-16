@@ -1,0 +1,53 @@
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+.parent{
+    height: 100vh;
+}
+.header{
+    height: 15%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.logo{
+    width: 12vw;
+}
+.menu{
+    display: flex;
+    gap: 20px;
+    margin-right: 10px;
+}
+.menu a{
+    text-decoration: none;
+    font-size: 20px;
+    color: black;
+}
+.menu a:hover{
+    color: orange;
+}
+.main{
+    height: 75%;
+    display: flex;
+    gap: 20px;
+    justify-content: center;
+    align-items: center;
+}
+.mobile{
+    border: 1px solid gray;
+    padding: 20px;
+    border-radius: 30px;
+    text-align: center;
+}
+.mobile img{
+    width: 200px;
+}   
+.footer{
+    height: 10%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: gray;
+}

@@ -1,0 +1,799 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Functios</title>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    </head>
+    <body>
+
+        <!-- <script>
+            /*
+                pure function
+                *************
+                    output of function never effected by external factors called as pure functions
+            */
+        </script> -->
+
+        <script>
+            let res = 0;
+
+            let add = (num1,num2)=>{
+                res = res+num1+num2;
+
+                return res;
+            }
+
+            document.write( add(2,3) , `<br>`);
+            document.write( add(2,3) );
+        </script>
+
+
+
+
+        <!-- <script>
+            /*
+                HOF (Higher Order Functions)
+                ****************************
+                    in HOF we will
+                        1) pass one function definition to another function parameter
+                        2) one function return another function
+                    usecase:
+                        1) to implement clean & readable code
+                        2) to achieve code reusability
+
+            */
+        </script> -->
+
+        <!-- <script>
+            let outer = (num1)=>{
+                return (num2)=>{
+                    return num1 * num2;
+                }
+            }
+            let inner = outer(200);
+            let res = inner(100);
+            document.write(res);
+        </script> -->
+
+        <!-- <script>
+            let test_func1 = (param1)=>{
+                param1();
+            }
+
+            test_func1( ()=>{
+                document.write(`welcome to hof !!!`)
+            } );
+            
+        </script> -->
+
+
+
+
+
+
+
+
+        <!-- <script>
+            /*
+                IIFE
+                ****
+                    Immidiate Invokable Functional Expression
+                    when ever we define the function, it will invoke(execute) automatically
+                    called as IIFE
+                    IIFE, used to overcome global polluting issue
+                    Syntax.
+                        (function(param1,param2,param3,....param n){
+                            business logic
+                        })(arg1,arg2,arg3,.... arg n)
+
+                        ((param1,param2,param3,...param n)=>{
+                            business logic
+                        })(arg1,arg2,arg3,....arg n)
+            */
+        </script> -->
+        
+        <!-- <script>
+            (()=>{
+                document.write(`welcome to IIFE`);
+            })()
+        </script> -->
+
+        <!-- <script>
+            let res = (()=>{
+                return 100;
+            })()
+            document.write(res)
+        </script> -->
+
+        <!-- <script>
+            let res = ((num1)=>num1 * num1)(100)
+            document.write(res);
+        </script> -->
+
+        <!-- <script>
+            /*
+                generator functions
+                *******************
+                    generator functions are used to 
+                    1) pause the execution
+                    2) resume the execution
+                    3) read data value by value
+                    usecase:
+                    1) async flows
+                    2) lazy loading
+
+                    generator functions starts with "*"
+                    yield is the keyword, used to pause the execution
+                    next() is the function, used to resume the execution
+
+            */
+
+        </script> -->
+
+        <!-- <script>
+            function *test_func(){
+                yield 100;
+                yield 200;
+                yield 300;
+            }
+            let cursor = test_func();
+            console.log( cursor.next() );
+            console.log( cursor.next() );
+            console.log( cursor.next() );
+            console.log( cursor.next() );
+        </script> -->
+
+        <!-- <script>
+            function *test_func1(){
+                yield 1000;
+                yield *func_one2();
+                yield 3000;
+            }
+            function *func_one2(){
+                yield 2000;
+            }
+            let cursor = test_func1();
+            // console.log(cursor.next());
+            // console.log(cursor.next());
+            // console.log(cursor.next());
+            // console.log(cursor.next());
+            for(let i=0;i<=3;i++){
+                console.log(cursor.next());
+            }
+        </script> -->
+
+        <!-- <script>
+            function *test_func(){
+                yield 10000;
+                yield 20000;
+                return 30000;
+                yield 40000;
+            }
+            let cursor = test_func();
+            console.log(cursor.next());
+            console.log(cursor.next());
+            console.log(cursor.next());
+            console.log(cursor.next());
+        </script> -->
+
+
+
+
+
+
+
+
+
+        <!-- <script>
+            $.ajax({
+                url : "https://www.w3schools.com/appml/customers.php",
+                method : "GET",
+                success : (posRes)=>{
+                   let obj = JSON.parse(posRes);
+                   let {records} = obj;
+                   document.write(`<table border="1" align="center" cellpadding="10" cellspacing="10">
+                                        <tr>
+                                            <th>CustomerName</th>
+                                            <th>City</th>
+                                            <th>Country</th>
+                                        </tr>`);
+                    records.forEach((element,index)=>{
+                        document.write(`<tr>
+                                <td>${element.CustomerName}</td>
+                                <td>${element.City}</td>
+                                <td>${element.Country}</td>
+                            </tr>`);
+                    });
+                    document.write(`</table>`);
+                },
+                error : (errRes)=>{
+                    console.log(errRes);
+                }
+            });
+        </script> -->
+
+
+
+        <!-- <script>
+            let func_one = (param1)=>{
+                param1();
+            }
+
+            func_one( ()=>{
+                document.write(`welcome to callback functions !!!`);
+            } );
+        </script> -->
+
+        <!-- <script>
+            let addition = (num,callback)=>{
+                callback(num+5,false);
+            }
+            let subtraction = (num,callback)=>{
+                callback(num-3,false);
+            }
+            addition(5,(addRes,flag)=>{
+                if(!flag){
+                    subtraction(addRes,(subRes,flag)=>{
+                        if(!flag){
+                            document.write(subRes);
+                        }
+                    })
+                }
+            });
+        </script> -->
+
+        <!-- <script>
+            let promise1 = new Promise((resolve,reject)=>{
+                resolve(`Data from server soon...!`);
+            })
+            
+            // promise1.then((posRes)=>{
+            //     console.log(posRes);
+            // },(errRes)=>{
+            //     console.log(errRes);
+            // });
+
+            let consume = async ()=>{
+                let res = await promise1;
+                document.write(res);
+            }
+            consume();
+        </script> -->
+
+        <!-- <script>
+            let addition = (num)=>{
+                return new Promise((resolve,reject)=>{
+                    resolve(num + 5);
+                })
+            }
+            let subtraction = (num)=>{
+                return new Promise((resolve,reject)=>{
+                    resolve(num - 3);
+                })
+            }
+            let consume = async ()=>{
+                let addRes = await addition(5);
+                let subRes = await subtraction(addRes);
+                document.write(subRes);
+            }
+            consume();
+        </script> -->
+
+
+        <!-- <script>
+            let p1 = new Promise((resolve,reject)=>{
+                resolve("Hello");
+            })
+            let p2 = new Promise((resolve,reject)=>{
+                resolve("Welcome");
+            })
+            let p3 = new Promise((resolve,reject)=>{
+                resolve("JS !!!")
+            })
+            Promise.all([p1,p2,p3]).then((posRes)=>{
+                console.log(posRes);
+            },(errRes)=>{
+                console.log(errRes);
+            });
+        </script> -->
+
+        <!-- <script>
+            let p1 = new Promise((resolve,reject)=>{
+                resolve("Hello");
+            })
+
+            let p2 = new Promise((resolve,reject)=>{
+                reject("Err");
+            })
+
+            let p3 = new Promise((resolve,reject)=>{
+                resolve("JS !!!")
+            })
+
+            // Promise.all([p1,p2,p3]).then((posRes)=>{
+            //     console.log(posRes);
+            // },(errRes)=>{
+            //     console.log(errRes);
+            // });
+
+            Promise.allSettled([p1,p2,p3]).then((posRes)=>{
+                console.log(posRes);
+            },(errRes)=>{
+                console.log(errRes);
+            });
+        </script> -->
+
+
+        <!-- <script>
+            let p1 = new Promise((resolve,reject)=>{
+                resolve("Hello");
+            })
+            let p2 = new Promise((resolve,reject)=>{
+                resolve("Welcome");
+            })
+            let p3 = new Promise((resolve,reject)=>{
+                resolve("JS !!!")
+            })
+            Promise.race([p1,p2,p3]).then((posRes)=>{
+                console.log(posRes);
+            },(errRes)=>{
+                console.log(errRes);
+            });
+        </script> -->
+
+        <!-- <script>
+            let p1 = new Promise((resolve,reject)=>{
+                setTimeout( ()=>{
+                    resolve("MySQL Soon...!")
+                }, 5000 );
+            });
+            let p2 = new Promise((resolve,reject)=>{
+                setTimeout( ()=>{
+                    resolve("MongoDB Soon...!")
+                }, 1000 );
+            });
+            p1.then((posRes)=>{
+                console.log(posRes);
+            },(errRes)=>{
+                console.log(errRes);
+            })
+            p2.then((posRes)=>{
+                console.log(posRes);
+            },(errRes)=>{
+                console.log(errRes);
+            })
+        </script> -->
+
+
+
+
+
+
+        <!-- <script>
+            /*
+                constructor functions
+                *********************
+                    constructor functions are used to create "objects"
+                    "new" is the keyword, used to create "objects"
+                    each member in "constructor function" must starts with "this" keyword
+            */
+        </script> -->
+
+        <!-- <script>
+            function class_one(){
+                this.num1 = 200;
+                this.num2 = 100;
+            }
+            let obj = new class_one();
+            let x = obj.num1;
+            let y = obj.num2;
+            let add = x + y;
+            document.write(add);
+        </script> -->
+
+        <!-- <script>
+            function class_one(){
+                this.getNum1 = function(){
+                    return 200;
+                }
+                this.getNum2 = function(){
+                    return 100;
+                }
+            }
+            let obj = new class_one();
+            let num1 = obj.getNum1();
+            let num2 = obj.getNum2();
+            let add = num1 + num2;
+            document.write(add);
+        </script> -->
+
+        <!-- <script>
+            function class_one(){
+                this.num1 = 200;
+
+                this.getNum1 = function(){
+                    return this.num1;
+                }
+
+            }
+            let obj = new class_one();
+            let num1 = obj.getNum1();
+
+        </script> -->
+
+
+        <!-- <script>
+            function class_one(){
+
+            }
+            class_one.prototype.frontend = `ReactJS`;
+
+            let obj = new class_one();
+            let x = obj.frontend;
+            document.write(x);
+        </script> -->
+
+        <!-- <script>
+            function class_one(){
+
+            }
+            class_one.prototype.getFrontend = function(){
+                return "ReactJS";
+            }
+
+            let obj = new class_one();
+            let res1 = obj.getFrontend();
+            document.write(res1);
+        </script> -->
+
+        <!-- <script>
+            function class_one(){}
+            class_one.prototype.num1 = 300;
+
+            function class_two(){}
+            class_two.prototype = Object.create(class_one.prototype);
+            class_two.prototype.num2 = 200;
+
+            function class_three(){}
+            class_three.prototype = Object.create(class_two.prototype);
+            class_three.prototype.num3 = 100;
+
+            let obj = new class_three();
+            let x = obj.num1;
+        </script> -->
+
+        <script>
+            function class_one(){}
+            class_one.prototype.getFrontend = function(){
+                return "ReactJS";
+            }
+        </script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        
+        <!--
+            function hoisting supports by "function declaration" and wont support by "function expression and arrow functions"
+        -->
+
+
+
+        <!-- <script>
+            let test_func = num1=>num1 * num1;
+            let res = test_func(10);
+            document.write(res);
+        </script> -->
+
+
+
+        <!-- <script>
+            let test_func = ()=>"Hello";
+            let res = test_func();
+            document.write(res);
+        </script> -->
+
+
+        <!-- <script>
+            let test_func = ()=>{
+                return true;
+            }
+            let res = test_func();
+            res ? document.write("Frontend") : document.write("Backend");
+        </script> -->
+
+
+
+        <!-- <script>
+            let test_func = ()=>{
+                return "CareerIT";
+            }
+            let res = test_func();
+            document.write(res);
+        </script> -->
+        
+        
+        
+        <!-- <script>
+            let test_func = ()=>{
+                return 100;
+            }
+            let res = test_func();
+            document.write(res);    
+        </script> -->
+
+
+
+
+        <!-- <script>
+            let test_func = (param1,param2)=>{
+                console.log(param1, param2);
+            }
+            test_func();
+            test_func(100,200,300);
+            test_func(null);
+            test_func(null,null,100);
+        </script> -->
+
+
+
+
+        <!-- <script>
+            let test_func = (param1,param2="Hello",...param3)=>{
+                console.log(param1,param2,param3);
+            }
+            test_func();
+            test_func("Hello");
+            test_func("Hello",undefined,"Hello");
+            test_func("Hello",undefined,"Hello",100);
+            test_func(undefined,undefined,undefined);
+            test_func(null,null,null,undefined);
+        </script> -->
+
+
+
+        <!-- <script>
+            let test_func = (...param1)=>{ 
+                console.log(param1);
+            }
+            test_func(10,20,30,40,50);
+            test_func();
+            test_func(undefined,200,300,null);
+        </script> -->
+
+
+
+
+
+        <!-- <script>
+            //Default Parameters
+            //ES6
+            let test_func = (param1="Hello",param2="Welcome")=>{
+                console.log(param1, param2);
+            }
+            test_func();
+            test_func(100,200);
+            test_func(undefined);
+            test_func(undefined,"Hello");
+            test_func(null);
+            test_func(null,undefined);
+            test_func(undefined,null);
+        </script> -->
+        
+        
+        
+        <!-- <fieldset>
+            <legend>CALCULATOR</legend>
+            <input type="number" id="num1" placeholder="enter first num">
+            <br><br>
+            <input type="number" id="num2" placeholder="enter second num">
+            <br><br>
+            <input type="number" id="res" placeholder="result soon">
+            <br><br>
+            <button onclick="add()">Add</button>
+            <button onclick="sub()">Sub</button>
+        </fieldset>
+        <script>
+            let add = ()=>{
+                let x = parseInt(document.getElementById("num1").value);
+                let y = parseInt(document.getElementById("num2").value);
+                let z = x + y;
+                document.getElementById("res").value = z;
+            }
+            let sub = ()=>{
+                let x = parseInt(document.getElementById("num1").value);
+                let y = parseInt(document.getElementById("num2").value);
+                let z = x - y;
+                document.getElementById("res").value = z;
+            }
+        </script> -->
+
+
+
+       
+       
+       
+        <!-- <fieldset>
+            <legend>LOGIN</legend>
+            <input type="text" id="uname" placeholder="enter username">
+            <br><br>
+            <input type="password" id="upwd" placeholder="enter password">
+            <br><br>
+            <button onclick="login()">Login</button>
+            <br><br>
+            <p id="res"></p>
+        </fieldset>
+        <script>
+            let login = ()=>{
+                let x = document.getElementById("uname").value;
+                let y = document.getElementById("upwd").value;
+                if(x == "admin" && y == "admin@123"){
+                    document.getElementById("res").innerHTML = "Login Success";
+                }else{
+                    document.getElementById("res").innerHTML = "Login Fail";
+                }
+            }
+        </script> -->
+
+
+
+        <script>
+            /*
+                functions
+                *********
+                    particular business logic called as function
+                           (or)
+                    set of statements also called as "function"
+
+                    functions are used to "reuse" the business logic
+
+                    types
+                    *****
+                    1) function declaration / named functions
+                    2) function expression / anonymous functions
+                    3) arrow functions
+                    4) constructor functions
+                    5) callback functions
+                    6) generator functions
+                    7) IIFE (Immidiate Invokable Functional Expression)
+                    8) higher order functions
+                    9) pure functions
+
+                    function declaration / named functions
+                    ************************************** 
+                        function with particular name (user defined name) called as function declaration / named functions
+
+                    syntax.
+                        function declaration
+                        ********************
+                        function functionname(param1,param2,param3,....param n){
+                            business logic
+                        }
+                        call the function
+                        *****************
+                        functionname(arg1,arg2,arg3,.....arg n);
+
+                    function expression / anonymous function
+                    ****************************************
+                        function without particular name called as function expression / anonymous function
+                        syntax.
+                            function expression
+                            ********************
+                            let functionname = function(param1,param2,param3,....param n){
+                                business logic
+                            }
+                            call the function
+                            *****************
+                            functionname(arg1,arg2,arg3,.....arg n);
+
+                    arrow functions
+                    ***************
+                        we will represent arrow functions with =>
+                        arrow functions released in ES6
+                        arrow functions simplifies the business logic
+                        syntax.
+                            function expression
+                            ********************
+                            let functionname = (param1,param2,param3,....param n)=>{
+                                business logic
+                            }
+                            call the function
+                            *****************
+                            functionname(arg1,arg2,arg3,.....arg n);
+
+                    Note : we are able to map function expression and arrow functions with the help of variables
+            */
+        </script>
+
+        <!-- <script>
+            function test_func(){
+                document.write(`welcome to function declaration !!!`);   
+            }
+            test_func();
+        </script> -->
+
+        <!-- <script>
+            let test_func = function(){
+                document.write(`welcome to function expression !!!`);   
+            }
+            test_func();
+        </script> -->
+
+        <!-- <script>
+            let test_func = ()=>{
+                document.write(`welcome to arrow functions !!!`);   
+            }
+            test_func();
+        </script> -->
+
+        <!-- <script>
+            let db_conn = ()=>{
+                document.write(`mongodb connection soon`);
+            }
+            db_conn();
+        </script> -->
+
+        <!-- <script>
+            //function with parameters and no return type
+            let add = function(num1,num2){
+                let res = num1 + num2;
+                document.write(res);
+            }
+            add(200,100);
+        </script> -->
+
+        <!-- <script>
+            //function - with parameters and with return type
+            function sub(num1,num2){
+                let res = num1 - num2;
+                return res;
+            }
+            let x = sub(200,100);
+            document.write(x);
+        </script> -->
+
+        <!-- <script>
+            //no para - with return type
+            let multiplication = ()=>{
+                let num1 = 200;
+                let num2 = 100;
+                let res = num1 * num2;
+                return res;
+            }
+            let x = multiplication();
+            document.write(x);
+        </script> -->
+
+        <!-- <script>
+            //no para - no return type
+            let division = function(){
+                let num1 = 200;
+                let num2 = 100;
+                let res = num1 / num2;
+                document.write(res);
+            }
+            division();
+        </script> -->
+
+
+
+        
+
+
+
+
+    </body>
+</html>

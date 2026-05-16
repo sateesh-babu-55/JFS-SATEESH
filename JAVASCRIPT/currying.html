@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Currying</title>
+    </head>
+    <body>
+        <script>
+            let outer_func = (param1)=>{
+                return (param2)=>{
+                    return (param3)=>{
+                        return param1 + param2 + param3;
+                    }
+                }
+            }
+            let res = outer_func(300)(200)(100);
+            document.write(res);
+        </script>
+    </body>
+</html>

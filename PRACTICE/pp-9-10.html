@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Tables</title>
+        <link rel="stylesheet" 
+               href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+               <style>
+                table{
+                    border-collapse: collapse;
+                    width: 70%;
+                    text-decoration-color:black;
+                }
+                tr:nth-child(even){
+    background-color:peru;
+    color: black;
+}
+tr:nth-child(odd){
+    background-color:lightpink;
+    color: black;
+}
+tr:hover{
+    background-color: aqua;
+}
+               </style>
+    </head>
+    <body>
+        <table border="1"
+               align="center"
+               cellpadding="10"
+               cellspacing="10">
+            <!-- ROW1 -->
+            <tr>
+                <th>S.NO</th>
+                <th>NAME</th>
+                <th>COST</th>
+                <th>UPDATE</th>
+                <th>DELETE</th>
+            </tr>
+
+            <!-- ROW2 -->
+            <tr>
+                <td align="center">1 </td>
+                <td>Laptop</td>
+                <td>
+                    <i class="fa fa-rupee"></i>50000.00</td>
+                <td>
+                    <i class="fa fa-edit"></i>
+                </td>
+                <td>
+                    <i class="fa fa-trash"></i>
+                </td>
+            </tr>
+
+            <!-- ROW3 -->
+            <tr>
+                <td align=center>2</td>
+                <td>Mobile</td>
+                <td>
+                    <i class="fa fa-dollar"></i>50</td>
+                <td>
+                    <i class="fa fa-edit"></i>
+                </td>
+                <td>
+                    <i class="fa fa-trash"></i>
+                </td>
+            </tr>
+
+            <!-- ROW4 -->
+            <tr>
+                <td align="center">3</td>
+                <td>Shoes</td>
+                <td>
+                    <i class="fa fa-euro"></i>10</td>
+                <td>
+                    <i class="fa fa-edit"></i>
+                </td>
+                <td>
+                    <i class="fa fa-trash"></i>
+                </td>
+            </tr>
+        </table>
+    </body>
+</html>

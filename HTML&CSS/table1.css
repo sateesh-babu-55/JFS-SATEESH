@@ -1,0 +1,31 @@
+table{
+    width:70%;
+    text-align: center;
+    margin: 100px auto;
+    border-collapse: collapse;
+    
+    
+
+}
+    table,th,td{
+        border: 1px solid black;   
+}
+th{
+    height: 70px;
+    color: black;
+}
+td{
+    height: 45px;
+}
+tr:nth-child(even){
+    background-color: green;
+    color: black;
+}
+tr:nth-child(odd){
+    background-color: yellow;
+    color: black;
+}
+tr:hover{
+    background-color: red;
+}
+    

@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>DOM Manipulations</title>
+        <style>
+            .c1{
+                color: green;
+            }
+            .c2{
+                color: red;
+            }
+        </style>
+    </head>
+    <body>
+        <ul id="my_ul"></ul>
+
+        <script>
+            let frag = document.createDocumentFragment();
+            for(let i=0;i<5;i++){
+                 let li = document.createElement("li");
+                 li.textContent = "Text "+i;
+                 frag.appendChild(li);
+            }
+            ul = document.getElementById("my_ul");
+            ul.appendChild(frag);
+        </script>
+
+
+
+
+        <!-- <button>Btn</button>
+        <script>
+            let btn = document.querySelector("button");
+            
+            function test_func(){
+                console.log("Hello");
+            }
+            
+            btn.addEventListener("click",test_func);
+            setTimeout(()=>{
+                btn.removeEventListener("click",test_func);
+                console.log("Removed");
+            },5000);
+        </script> -->
+
+
+
+
+
+        <!-- <h1 id="res">Hello</h1>
+        <button onclick="toggle_fn()">Toggle</button>
+        <script>
+            let toggle_fn = ()=>{
+                let h1 = document.getElementById("res");
+                h1.classList.toggle("c1");     
+            }
+        </script> -->
+
+
+
+
+
+        <!-- <fieldset>
+            <legend>LOGIN</legend>
+            
+            <input type="text" id="uname" placeholder="enter user name">
+            <br><br>
+            <input type="password" id="upwd" placeholder="enter password">
+            <br><br>
+            <button onclick="login()">Login</button>
+            <br><br>
+            <h1 id="res"></h1>
+        </fieldset>
+        <script>
+            let login = ()=>{
+               let uname = document.getElementById("uname").value; 
+               let upwd = document.getElementById("upwd").value;
+               let h1 = document.getElementById("res");
+               if(uname == "admin" && upwd == "admin@123"){
+                    h1.innerHTML = "Login Success";
+                    if(h1.classList.contains("c2")){
+                        h1.classList.remove("c2");
+                    }
+                    h1.classList.add("c1");
+               }else{
+                    h1.innerHTML="Login Fail";
+                    if(h1.classList.contains("c1")){
+                        h1.classList.remove("c1");
+                    }
+                    h1.classList.add("c2");
+               }
+            }
+        </script> -->
+
+        
+
+
+
+
+        <!-- <div></div>
+        <script>
+            //get ref of "div"
+
+            //create "h6" and add to "div"
+
+            //create "h5" and add before "h6"
+            
+            //replace "h5" with "h1"
+
+            //clone "h1" and add to "div"
+
+            //remove "h6"
+        </script> -->
+
+
+
+        <!-- <div></div>
+        <script>
+            let div = document.querySelector("div");
+
+            let p = document.createElement("p");
+            p.innerHTML="Hello";
+
+            div.appendChild(p);
+
+            xerox_p = p.cloneNode(true);
+            div.appendChild(xerox_p);
+
+            let h1 = document.createElement("h1");
+            h1.innerHTML = "Hello";
+            div.replaceChild(h1,p);
+
+            let h2 = document.createElement("h2");
+            h2.innerHTML = "Hello";
+            div.insertBefore(h2,xerox_p);
+
+            div.removeChild(h1);
+
+        </script> -->
+
+
+
+
+
+
+
+        <!-- <p id="my_p"></p> -->
+        
+        <!-- <h1 id="my_h1"> </h1>
+        <script>
+           let h1 = document.getElementById("my_h1"); 
+           //h1.innerHTML = "<i>Hello</i>"
+           //h1.innerText = "<i>Hello</i>";
+        </script> -->
+
+
+        <!-- <p></p>
+        <p></p>
+        <p></p>
+        <script>
+            let all_p = document.getElementsByTagName("p"); 
+            // all_p[0].innerHTML = "Hello_1";
+            // all_p[1].innerHTML = "Hello_2";
+            // all_p[2].innerHTML = "Hello_3";
+
+            for(let p of all_p){
+                p.innerHTML = "Hello"
+            }
+        </script> -->
+
+        <!-- <h1></h1>
+        <h1></h1>
+        <h1></h1>
+        <h1></h1>
+        <h1></h1> -->
+
+
+        <!-- <p class="p1"></p>
+        <p class="p1"></p>
+        <p class="p1"></p>
+
+        <p class="p2"></p>
+        <p class="p2"></p>
+        <p class="p2"></p>
+        <script>
+            let all_p1 = document.getElementsByClassName("p1");
+            all_p1[0].innerHTML = "HTML";
+            all_p1[1].innerHTML = "CSS";
+            all_p1[2].innerHTML = "JAVASCRIPT";
+
+
+        </script> -->
+
+
+        <!-- <p></p>
+        <p></p>
+        <p></p>
+
+        <p class="p1"></p>
+        <p class="p1"></p>
+        <p class="p1"></p>
+        <script>
+            let first_p = document.querySelector("p");
+            first_p.innerHTML = "Hello";
+
+            let first_p1 = document.querySelector(".p1");
+            first_p1.innerHTML = "Hello";
+        </script> -->
+
+
+        <!-- <p></p>
+        <p></p>
+        <p></p>
+
+        <p class="p1"></p>
+        <p class="p1"></p>
+        <p class="p1"></p>
+        <script>
+            let all_p = document.querySelectorAll("p");
+            all_p[0].innerHTML = "HTML";
+            all_p[1].innerHTML = "CSS";
+            all_p[2].innerHTML = "JAVASCRIPT";
+
+            let all_p1 = document.querySelectorAll(".p1");
+            all_p1[0].innerHTML = "HTML";
+            all_p1[1].innerHTML = "CSS";
+            all_p1[2].innerHTML = "JAVASCRIPT";
+        </script> -->
+
+        <!-- <p></p>
+
+        <script>
+            let p = document.querySelector("p");
+            p.setAttribute("class","c1");
+            console.log(p.getAttribute("class"));
+            console.log(p.hasAttribute("class"));
+            p.removeAttribute("class");
+        </script> -->
+
+
+
+    </body>
+</html>

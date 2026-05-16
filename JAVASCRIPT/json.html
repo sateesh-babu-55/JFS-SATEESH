@@ -1,0 +1,398 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>JSON !!!</title>
+    </head>
+    <body>
+        <!-- <script>
+            /*
+                JSON
+                ****
+                    Java Script Object Notation
+                            (or)
+                    Java Script Objects
+                    JSON, used to transfer the data over the Network
+                    JSON is light weight
+                    JSON is network friendly format
+                    Syntax.
+                        Objects -- {}
+                        Arrays. -- []
+                        Data.   -- key & value pairs
+                                   key & value separated by using ":"
+                                   pairs are separated by using ","
+            */
+        </script> -->
+        
+        <!-- <script>
+            let obj1 = {
+                frontend : "React",
+                backend : "NodeJS",
+                database : "MongoDB"
+            };
+            //sol1 : by using . (dot)
+            let e1 = obj1.frontend;
+            document.write(e1);
+
+            //sol2 : by using square operator([])
+            let e11 = obj1["frontend"];
+            document.write(e11);
+
+            //sol3: (destructring) (ES6)
+            let {frontend,backend,database} = obj1;
+            document.write(frontend,backend,database);
+
+            //sol4: for...in loop
+            for(let key in obj1){
+                document.write(obj1[key]);
+            }
+        </script> -->
+
+        <!-- <script>
+            let obj1 = {
+                frontend : "React",
+                backend : "NodeJS",
+                database : "MongoDB"
+            };
+            let arr1 = Object.keys(obj1);
+            console.log(arr1);
+            let arr2 = Object.values(obj1);
+            console.log(arr2);
+        </script> -->
+
+        <!-- <script>
+            let obj1 = {
+                frontend : "React",
+                backend : "NodeJS",
+                database : "MongoDB"
+            };
+            
+
+            let str = JSON.stringify(obj1);
+            console.log(typeof(str));       //string
+
+            let obj2 = JSON.parse(str);
+            console.log(typeof(obj2));      //object
+        </script> -->
+
+        <!-- <script>
+            let obj1 = {
+                frontend : "React",
+                backend : "NodeJS",
+                database : "MongoDB"
+            };
+            delete obj1.database;
+            console.log(obj1);
+        </script> -->
+
+        <!-- <script>
+            let obj1 = {
+                key1 : 100,
+                key1 : 200
+            };
+            console.log(obj1);
+        </script> -->
+
+        <!-- <script>
+            let obj1 = {
+                key1 : 100,
+                key2 : 100
+            };
+            console.log(obj1);
+        </script> -->
+
+        <!-- <script>
+            let emps = [{empId:"e101",empName:"Emp1",empDept:"CSE",empImg:"https://reqres.in/img/faces/1-image.jpg"},
+                        {empId:"e102",empName:"Emp2",empDept:"ECE",empImg:"https://reqres.in/img/faces/2-image.jpg"},
+                        {empId:"e103",empName:"Emp3",empDept:"EEE",empImg:"https://reqres.in/img/faces/3-image.jpg"},
+                        {empId:"e104",empName:"Emp4",empDept:"IT",empImg:"https://reqres.in/img/faces/4-image.jpg"},
+                        {empId:"e105",empName:"Emp5",empDept:"CIVIL",empImg:"https://reqres.in/img/faces/5-image.jpg"}];
+            document.write(`
+                <table border="1" align="center" cellpadding="10" cellspacing="10">
+                    <tr>
+                        <th>empId</th>
+                        <th>empName</th>
+                        <th>empDept</th>
+                        <th>empImg</th>
+                    </tr>
+            `);
+            emps.forEach((element,index)=>{
+                document.write(`<tr>
+                    <td>${element.empId}</td>
+                    <td>${element.empName}</td>
+                    <td>${element.empDept}</td>
+                    <td>
+                        <img src=${element.empImg} width="80">   
+                    </td>
+                </tr>`);
+            });
+            document.write(`</table>`);
+        </script> -->
+
+        <!-- <script>
+            let obj1 = {
+                key1 : 100
+            };
+            //freeze
+            //read(allows), write,update and delete(not allowed)
+            Object.freeze(obj1);
+
+            //read
+            console.log(obj1);      //{key1: 100}
+
+            //update
+            obj1.key1 = 1000;
+            console.log(obj1)
+
+            //write
+            obj1.key2 = 200;
+            console.log(obj1)
+
+            //delete
+            delete obj1.key1;
+            console.log(obj1)
+        </script> -->
+
+        <!-- <script>
+            /*
+                seal() - allows read and update
+            */
+            let obj1 = {
+                key1 : 100
+            };
+            Object.seal(obj1);
+
+            //read
+            console.log(obj1);
+
+            //update
+            obj1.key1=1000;
+            console.log(obj1);
+
+            //write
+            obj1.key2 = 200;
+            console.log(obj1);  
+
+            //delete
+            delete obj1.key1;
+            console.log(obj1);
+        </script> -->
+
+
+        <!-- <script>
+            /*
+                defineProperty()
+                    allow to add properties dynamically & allows customization
+            */
+            let obj1 = {
+                key1 : 100
+            };
+            Object.defineProperty(obj1,"key2",{value:200,writable:false});
+            Object.defineProperty(obj1,"key3",{value:300,writable:true});
+            console.log(obj1);
+
+            obj1.key1 = 1000;
+            obj1.key2 = 2000;
+            obj1.key3 = 3000;
+            console.log(obj1);
+
+            delete obj1.key1;
+            delete obj1.key2;
+            delete obj1.key3;
+            console.log(obj1);
+        </script> -->
+
+        <!-- <script>
+            /*
+                defineProperties()
+                    used to add more than one customizable propertty
+            */
+            let obj1 = {
+                key1 : 100
+            };
+            Object.defineProperties(obj1,{
+                key2:{value:200,writable:false},
+                key3:{value:300,writable:true}
+            });
+            obj1.key1 = 1000;
+            obj1.key2 = 2000;
+            obj1.key3 = 3000;
+            console.log(obj1);
+
+            delete obj1.key1;
+            delete obj1.key2;
+            delete obj1.key3;
+            console.log(obj1);
+        </script> -->
+
+        <!-- <script>
+            let obj1 = {
+                key1 : 100
+            };
+            let arr1 = Object.entries(obj1);
+            console.log(arr1);
+
+            let obj2 = Object.fromEntries(arr1);
+            console.log(obj2);
+        </script> -->
+
+        <!-- <script>
+            let obj1 = {
+                key1 : 100
+            };
+
+            //add key2
+            obj1.key2 = 200;
+            obj1.key3 = 300;
+            console.log(obj1);
+
+            //delete key1
+            delete obj1.key1;
+            console.log(obj1);
+
+            console.log( obj1.hasOwnProperty("key2") );
+            console.log( obj1.hasOwnProperty("key1") );
+        </script> -->
+
+        <!-- <script>
+            //Destructuring
+            let obj1 = {
+                obj2 : {
+                    obj3 : {
+                        msg : "Hello"
+                    }
+                }
+            };
+            let {obj2} = obj1;
+            let {obj3} = obj2;
+            let {msg} = obj3;
+            console.log(msg);
+        </script> -->
+
+        <!-- <script>
+            let obj1 = {
+                name : "EComm-Appln",
+                category : "Laptops",
+                laptops : [{cost:10000,limg:"https://mern-bkt.s3.eu-north-1.amazonaws.com/laptop1.jpeg"},
+                           {cost:20000,limg:"https://mern-bkt.s3.eu-north-1.amazonaws.com/laptop2.jpeg"},
+                           {cost:30000,limg:"https://mern-bkt.s3.eu-north-1.amazonaws.com/laptop3.jpeg"},
+                           {cost:40000,limg:"https://mern-bkt.s3.eu-north-1.amazonaws.com/laptop4.jpeg"},
+                           {cost:50000,limg:"https://mern-bkt.s3.eu-north-1.amazonaws.com/laptop5.jpeg"}]
+            };
+            let {name,category,laptops} = obj1;
+            document.write(`<table border="1" align="center" cellpadding="10" cellspacing="10">
+                                <tr>
+                                    <td colspan="2">${name}</td>
+                                </tr>
+                                <tr>
+                                    <td colspan="2">${category}</td>
+                                </tr>`);
+            laptops.forEach((element,index)=>{
+                document.write(`<tr>
+                        <td>${element.cost}</td>
+                        <td>
+                            <img src=${element.limg} width="50">    
+                        </td>
+                    </tr>`);
+            });
+            document.write(`</table>`);
+        </script> -->
+
+        <!-- <script>
+            let obj1 = {
+                obj1:{
+                    obj1:{
+                        msg : "Hello"
+                    }
+                }
+            };
+            let {obj1:x} = obj1;
+            let {obj1:y} = x;
+            let {msg} = y;
+            console.log(msg);
+        </script> -->
+
+        <!-- <script>
+            let obj1 = {num1:100};
+            let obj2 = {num2:200};
+            let obj3 = {num3:300};
+
+            //old
+            let new_obj1 = Object.assign(obj1,obj2,obj3);
+            console.log(new_obj1);
+
+            //spread operator
+            let new_obj2 = {...obj1,...obj2,...obj3};
+            console.log(new_obj2);
+        </script> -->
+
+        <!-- <script>
+            let arr1 = [100];
+            let arr2 = [200];
+            let arr3 = [300];
+            let new_arr1 = arr1.concat(arr2,arr3);
+            console.log(new_arr1);
+
+            let new_arr2 = [...arr1,...arr2,...arr3];
+            console.log(new_arr2);
+        </script> -->
+
+
+        <!-- <script>
+            let obj1 = {
+                num1 : 1000,
+                num2 : 2000,
+                num3 : 3000,
+                num4 : 4000,
+                num5 : 5000
+            };
+            let {num1,...obj2} = obj1;
+            let {num2,num3,...obj3} = obj2;
+            let {num4,...obj4} = obj3;
+            let {num5} = obj4;
+            console.log(num1,num2,num3,num4,num5);
+        </script> -->
+
+        <!-- <script>
+            let arr1 = [1000,2000,3000,4000,5000];
+            let [num1,...arr2] = arr1;
+        </script> -->
+
+        <!-- <script>
+            let db = {
+                ora_db1 : function(){
+                    console.log("oracle conn soon...!");
+                },
+                ora_db2 : function(param1){
+                    return `${param1} conn soon...!`;
+                }
+            };
+            db.ora_db1();
+            let res1 = db.ora_db2("oracle");
+            console.log(res1)
+        </script> -->
+
+        <!-- <script>
+            let db_conn = {
+                mongodb1 : ()=>{
+                    return "mongodb conn soon...!"
+                }
+            };
+            let res1 = db_conn.mongodb1();
+            console.log(res1);
+        </script> -->
+
+        <script>
+            let obj1 = {
+                key1 : 100
+            };
+
+            let xerox = {...obj1};
+            obj1.key2 = 200;
+
+            console.log(obj1);
+            console.log(xerox);
+        </script>
+
+
+    </body>
+</html>
