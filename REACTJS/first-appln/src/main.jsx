@@ -12,6 +12,8 @@ import Test3 from './components/Test3.jsx'
 import StateEx1 from './components/StateEX1.jsx'
 import StateEx2 from './components/StateEX2.jsx'
 import StateEx3 from './components/StateEX3.jsx'
+import DeleteEx1 from './components/Delete.jsx'
+import PostEx1 from './components/PostEX1.jsx'
 createRoot(document.getElementById('root')).render(
-  <StateEx3></StateEx3>
+  <DeleteEx1></DeleteEx1>
 )
